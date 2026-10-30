@@ -1,0 +1,32 @@
+name: Metrics
+
+on:
+  # 每天北京时间 08:00 更新一次（cron 使用 UTC 时间）
+  schedule: [{ cron: '0 0 * * *' }]
+  # 支持在 Actions 页面手动运行
+  workflow_dispatch:
+
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+
+    # 生成的 github-metrics.svg 会提交回本仓库
+    permissions:
+      contents: write
+
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          # 需要在仓库 Settings → Secrets and variables → Actions 中添加名为 METRICS_TOKEN 的个人访问令牌
+          token: ${{ secrets.METRICS_TOKEN }}
+          filename: github-metrics.svg
+          config_timezone: Asia/Shanghai
+          config_twemoji: yes
+          base: header, activity, community, repositories
+          # 常用语言占比
+          plugin_languages: yes
+          plugin_languages_sections: most-used
+          plugin_languages_limit: 8
+          # 一年的贡献日历（等距视图）
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: half-year
