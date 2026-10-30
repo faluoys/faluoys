@@ -48,3 +48,8 @@
 ![Postman](https://img.shields.io/badge/-Postman-%23FF6C37?style=for-the-badge&logo=postman&logoColor=ffffff)
 ![Docker](https://img.shields.io/badge/-Docker-%232496ED?style=for-the-badge&logo=docker&logoColor=ffffff)
 ![Vercel](https://img.shields.io/badge/-Vercel-%23000000?style=for-the-badge&logo=vercel&logoColor=ffffff)
+
+### 📈 GitHub 统计
+
+<!-- 由 .github/workflows/metrics.yml 每天自动生成 -->
+![faluoys 的 GitHub 统计](./github-metrics.svg)
